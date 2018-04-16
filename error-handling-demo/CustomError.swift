@@ -10,6 +10,7 @@ import Foundation
 enum CustomError: Error {
     case requestFailure(String)
     case parsingFailure
+    case modelConversionFailure
     case none
 }
 
@@ -18,6 +19,7 @@ extension CustomError: LocalizedError {
         switch self {
         case .requestFailure(let description): return description
         case .parsingFailure: return "Parsing failure."
+        case .modelConversionFailure: return "Model conversion failure."
         default: return "None"
         }
     }
@@ -27,7 +29,8 @@ extension CustomError {
     static func == (lhs: CustomError, rhs: CustomError) -> Bool {
         switch (lhs, rhs) {
         case (.parsingFailure, .none),
-             (.requestFailure, .none): return false
+             (.requestFailure, .none),
+             (.modelConversionFailure, .none): return false
         default: return true
         }
     }

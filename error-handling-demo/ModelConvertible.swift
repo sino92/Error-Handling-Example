@@ -13,7 +13,7 @@ protocol ModelConvertible {
 
 extension ModelConvertible {
     static func convertToModel<T: ModelConvertible>(json: JSON) -> Result<T> {
-        guard let user = T(json: json) else { return .failure(.parsingFailure) }
+        guard let user = T(json: json) else { return .failure(.modelConversionFailure) }
         return .success(user)
     }
 }
