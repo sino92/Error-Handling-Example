@@ -18,22 +18,16 @@ final class FirebaseClientAPI {
         _request = request
     }
 
-    func submitRequest() -> Observable<Result<JSON>> {
+    func submitRequest() -> Observable<JSON> {
         guard let request = _request.urlRequest else { return Observable.empty() }
-        return Observable.create { obx in
+        return Observable.create { obs in
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                print("Request submitted")
-
-                guard error == nil else {
-                    return obx.onNext(.failure(.requestFailure(error!.localizedDescription)))
-                }
+                guard error == nil else { return }
 
                 guard let anyJson = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments),
                     let json = anyJson as? [String:AnyObject]
-                    else {
-                        return obx.onNext(.failure(.parsingFailure))
-                }
-                obx.onNext(.success(json))
+                    else { return }
+                obs.onNext(json)
             }
             task.resume()
             return Disposables.create {

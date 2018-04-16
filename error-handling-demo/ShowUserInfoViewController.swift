@@ -32,12 +32,6 @@ final class ShowUserInfoViewController: UIViewController {
         showUserInfoViewModel.output.userName
             .drive(nameLabel.rx.text)
             .disposed(by: disposeBag)
-
-        showUserInfoViewModel.output.error.asObservable()
-            .filter { $0 != .none }
-            .observeOn(MainScheduler())
-            .subscribe(onNext: { self.showAlert(with: $0) })
-            .disposed(by: disposeBag)
     }
 
     private func showAlert(with clientAPIError: CustomError) {

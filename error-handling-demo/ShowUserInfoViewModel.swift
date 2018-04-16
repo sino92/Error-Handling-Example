@@ -31,7 +31,6 @@ final class ShowUserInfoViewModel: ShowUserInfoViewModelType {
     struct Output {
         let userAge: Driver<String>
         let userName: Driver<String>
-        let error: Observable<CustomError>
     }
 
     init() {
@@ -39,21 +38,18 @@ final class ShowUserInfoViewModel: ShowUserInfoViewModelType {
 
         let userObserver = request
             .submitRequest()
-            .map { User.decode(json: $0) }
+            .map { User.init(json: $0) }
 
         let triggeredUserData = triggerPressHereSubject
             .flatMapLatest { userObserver }
 
-        let user = triggeredUserData.map { $0.value ?? .empty }
-        let userName = user.map { $0._name }
-        let userAge = user.map { "\($0._age)" }
-        let error = triggeredUserData.map { $0.error ?? .none }
+        let userName = triggeredUserData.map { $0?._name ?? "" }
+        let userAge = triggeredUserData.map { "\($0?._age ?? 0)"  }
 
         input = Input(triggerPressHere: triggerPressHereSubject.asObserver())
         output = Output(
             userAge: userAge.asDriver(onErrorJustReturn: ""),
-            userName: userName.asDriver(onErrorJustReturn: ""),
-            error: error
+            userName: userName.asDriver(onErrorJustReturn: "")
         )
     }
 }
