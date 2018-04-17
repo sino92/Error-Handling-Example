@@ -37,12 +37,12 @@ final class ShowUserInfoViewModel: ShowUserInfoViewModelType {
     init() {
         let request = FirebaseClientAPI(request: .database)
 
-        let userObserver = request
+        let userObservable = request
             .submitRequest()
             .map { User.decode(json: $0) }
 
         let triggeredUserData = triggerPressHereSubject
-            .flatMapLatest { userObserver }
+            .flatMapLatest { userObservable }
 
         let user = triggeredUserData.map { $0.value ?? .empty }
         let userName = user.map { $0._name }
