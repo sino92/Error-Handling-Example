@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowUserInfoViewController" customModule="error_handling_demo" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="xDq-np-bt4" id="POW-tC-iZX"/>
                 <outlet property="ageLabel" destination="HkO-Ml-TGI" id="nAd-aq-VtZ"/>
                 <outlet property="nameLabel" destination="xHR-M3-CBD" id="FNF-FA-ubN"/>
                 <outlet property="pressHereButton" destination="G8n-BZ-Ns5" id="sBm-s9-NhQ"/>
@@ -39,8 +40,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xDq-np-bt4">
+                    <rect key="frame" x="169" y="387" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xHR-M3-CBD" firstAttribute="centerX" secondItem="G8n-BZ-Ns5" secondAttribute="centerX" id="6jQ-jP-I04"/>
                 <constraint firstItem="G8n-BZ-Ns5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="H8S-Sv-J84"/>

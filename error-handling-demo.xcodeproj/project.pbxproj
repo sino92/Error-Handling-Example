@@ -84,11 +84,11 @@
 				25A696B52084D77A00431E9D /* GoogleService-Info.plist */,
 				25A696B12084D54D00431E9D /* ShowUserInfoViewController.swift */,
 				25A696B22084D54D00431E9D /* ShowUserInfoViewController.xib */,
+				25A696C92085031D00431E9D /* ShowUserInfoViewModel.swift */,
 				25A696B72084D94E00431E9D /* User.swift */,
 				25A696B92084DAB400431E9D /* Result.swift */,
 				25A696BB2084DAE900431E9D /* Request.swift */,
 				25A696BD2084DB0800431E9D /* FirebaseClientAPI.swift */,
-				25A696C92085031D00431E9D /* ShowUserInfoViewModel.swift */,
 				25A696CB208506F100431E9D /* CustomError.swift */,
 				25A696CD208519A700431E9D /* ModelConvertible.swift */,
 			);
@@ -124,7 +124,6 @@
 				25A696992084D52500431E9D /* Frameworks */,
 				25A6969A2084D52500431E9D /* Resources */,
 				622FF21F4D9D3CEEBE01329C /* [CP] Embed Pods Frameworks */,
-				B2A08729E6C9B00840687E18 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,21 +204,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-error-handling-demo/Pods-error-handling-demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B2A08729E6C9B00840687E18 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-error-handling-demo/Pods-error-handling-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9B6E3E6A76A35759FBEDFEB /* [CP] Check Pods Manifest.lock */ = {
